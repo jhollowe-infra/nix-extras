@@ -1,26 +1,23 @@
 {
   description = "";
 
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-  };
+  inputs = { nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; };
 
-  outputs = { self, nixpkgs }: let
+  outputs = { self, nixpkgs }:
+    let
 
-    forAllSystems = function:
-      nixpkgs.lib.genAttrs [
-        "x86_64-linux"
-        "aarch64-linux"
-      ] (system: function nixpkgs.legacyPackages.${system});
+      forAllSystems = function:
+        nixpkgs.lib.genAttrs [ "x86_64-linux" "aarch64-linux" ]
+        (system: function nixpkgs.legacyPackages.${system});
 
-  in {
+    in {
 
-    overlays.default = import ./default.nix;
+      overlays.default = import ./default.nix;
 
-    packages = forAllSystems (pkgs: import ./packages.nix pkgs);
+      packages = forAllSystems (pkgs: import ./packages.nix pkgs);
 
-    nixosModules = {
-      default = import ./modules/overlay.nix;
-    } // (import ./modules/allmodules.nix);
-  };
+      nixosModules = {
+        default = import ./modules/overlay.nix;
+      } // (import ./modules/allmodules.nix);
+    };
 }

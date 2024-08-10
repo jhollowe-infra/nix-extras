@@ -21,13 +21,21 @@
 				"jnoortheen.nix-ide"
 			],
 			"settings": {
-				"nix.formatterPath": "nixfmt",
 				"nix.enableLanguageServer": true,
-				"nix.serverPath": "nixd"
+				"nix.serverPath": "nixd",
+				"nix.formatterPath": "nixfmt",
+				"nix.serverSettings": {
+					"nixd": {
+						"formatting": {
+							"command": [
+								"nixfmt"
+							]
+						}
+					}
+				}
 			}
+		},
+		"remoteEnv": {
+			"NIXPKGS": "/workspaces/nixpkgs"
 		}
-	},
-	"remoteEnv": {
-		"NIXPKGS": "/workspaces/nixpkgs"
 	}
-}

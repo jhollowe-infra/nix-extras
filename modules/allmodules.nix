@@ -1,10 +1,11 @@
 let
-  importModule = module: { lib, ...} : {
-    nixpkgs.overlays = [ (import ../default.nix) ];
-    nixpkgs.config.allowUnfree = lib.mkDefault true;
+  importModule = module:
+    { lib, ... }: {
+      nixpkgs.overlays = [ (import ../default.nix) ];
+      nixpkgs.config.allowUnfree = lib.mkDefault true;
 
-    imports = [ module ];
-  };
+      imports = [ module ];
+    };
 
 in {
   # name = importModule ./name.nix;
