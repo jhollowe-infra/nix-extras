@@ -3,5 +3,7 @@ pkgs:
 let inherit (pkgs) callPackage lib;
 
 in {
-  # name = pkgs.pkgsMusl.callPackage ./pkgs/name {};
+
+  hamrs = callPackage ./pkgs/hamrs/package.nix { };
+
 }

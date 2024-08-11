@@ -10,6 +10,7 @@ let
 
 in rec {
   # Evaluate overlay packages
+  inherit (pkgs) hamrs;
 
   # beegfs-client = pkgs.linuxPackages.beegfs;
 
