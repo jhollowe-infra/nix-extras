@@ -34,8 +34,6 @@
 					}
 				}
 			}
-		},
-		"remoteEnv": {
-			"NIXPKGS": "/workspaces/nixpkgs"
 		}
 	}
+}
