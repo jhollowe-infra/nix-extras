@@ -8,5 +8,6 @@ let
     };
 
 in {
-  # name = importModule ./name.nix;
+
+  meshtasticd = importModule ./meshtasticd.nix;
 }

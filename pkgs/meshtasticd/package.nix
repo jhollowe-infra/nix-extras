@@ -7,6 +7,7 @@ let platformioBundled = platformio;
 in stdenv.mkDerivation rec {
   pname = "meshtasticd";
   version = "2.4.1.394e0e1";
+  __impure = true; # since we install uncontrolled Arduino packages
 
   src = fetchFromGitHub {
     owner = "meshtastic";
